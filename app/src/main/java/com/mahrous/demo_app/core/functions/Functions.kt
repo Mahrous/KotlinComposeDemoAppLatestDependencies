@@ -12,8 +12,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import android.graphics.BitmapFactory
 import android.util.Base64
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathEffect
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.unit.Dp
 import com.mahrous.demo_app.core.app.AppPreferences
 import com.mahrous.demo_app.core.app.Constants
+import com.mahrous.demo_app.core.theme.AppCornerShape
+import com.mahrous.demo_app.core.theme.AppSize
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
 import io.michaelrocks.libphonenumber.android.Phonenumber
 import java.text.DecimalFormat
@@ -159,3 +166,43 @@ fun formatDate(date: String): String {
         ""
     }
 }
+
+fun isNameContainJustLetterValidInput(text: String): Boolean {
+    val regex = Regex("^[a-zA-Z\\u0621-\\u064A\\s]+$")
+    return regex.matches(text)
+}
+
+fun Modifier.dashedBorder(
+    color: Color =  Color(0xFF388E3C),
+    cornerRadius: Dp = AppCornerShape.corner25,
+    strokeWidth: Dp = AppSize.size1,
+    dashWidth: Dp = AppSize.size4,
+    dashGap: Dp = AppSize.size4
+): Modifier = this.drawWithContent {
+    drawContent()
+
+    val strokePx = strokeWidth.toPx()
+    val cornerRadiusPx = cornerRadius.toPx()
+    val dashWidthPx = dashWidth.toPx()
+    val dashGapPx = dashGap.toPx()
+
+    val halfStroke = strokePx / 2f
+
+    drawRoundRect(
+        color = color,
+        topLeft = androidx.compose.ui.geometry.Offset(halfStroke, halfStroke),
+        size = androidx.compose.ui.geometry.Size(
+            width = size.width - strokePx,
+            height = size.height - strokePx
+        ),
+        style = Stroke(
+            width = strokePx,
+            pathEffect = PathEffect.dashPathEffect(
+                intervals = floatArrayOf(dashWidthPx, dashGapPx),
+                phase = 0f
+            )
+        ),
+        cornerRadius = androidx.compose.ui.geometry.CornerRadius(cornerRadiusPx)
+    )
+}
+

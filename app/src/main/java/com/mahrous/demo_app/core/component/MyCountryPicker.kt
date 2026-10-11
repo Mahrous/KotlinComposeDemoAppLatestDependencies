@@ -1,4 +1,4 @@
-package com.mahrous.demo_app.core.component.textfield
+package com.mahrous.demo_app.core.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -14,8 +14,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
-import com.mahrous.demo_app.R
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalTextStyle
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,20 +36,18 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
-
+import com.mahrous.demo_app.R
 import com.utkuglsvn.countrycodepicker.libData.CountryCode
 import com.utkuglsvn.countrycodepicker.libData.utils.getFlagMasterResID
 import com.utkuglsvn.countrycodepicker.libData.utils.getLibCountries
 import com.utkuglsvn.countrycodepicker.libUtils.searchCountryList
-import kotlin.collections.first
-import kotlin.text.isEmpty
 
 class MyCountryPicker {
 
 
     @Composable
     fun CountryCodeDialog(
-        modifier: Modifier = Modifier,
+        modifier: Modifier = Modifier.Companion,
         isOnlyFlagShow: Boolean = false,
         defaultSelectedCountry: CountryCode = getLibCountries().first(),
         pickedCountry: (CountryCode) -> Unit,
@@ -60,7 +64,8 @@ class MyCountryPicker {
 //                .background(Color.Transparent)
 //                .clickable { isOpenDialog = true }
 //        ) {
-        Box(modifier = Modifier
+        Box(
+            modifier = Modifier
 //            .height(AppSize.size50)
 //            .background(color = MaterialTheme.colors.surface,RoundedCornerShape(
 //                8.dp
@@ -72,7 +77,7 @@ class MyCountryPicker {
 //                    8.dp
 //                )
 //            )
-            .clickable { isOpenDialog = true }) {
+                .clickable { isOpenDialog = true }) {
             Row(
                 modifier.padding(10.dp).align(Alignment.Center),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -111,7 +116,7 @@ class MyCountryPicker {
                     modifier = Modifier
                         .fillMaxWidth()
                         .fillMaxHeight(0.85f),
-                    elevation = CardDefaults.cardElevation(4.dp) ,
+                    elevation = CardDefaults.cardElevation(4.dp),
                     shape = RoundedCornerShape(dialogRounded.dp)
                 ) {
                     Column {
@@ -180,7 +185,7 @@ class MyCountryPicker {
 
     @Composable
     private fun CustomTextField(
-        modifier: Modifier = Modifier,
+        modifier: Modifier = Modifier.Companion,
         value: String,
         onValueChange: (String) -> Unit,
         hint: String = "",
@@ -205,7 +210,7 @@ class MyCountryPicker {
                 singleLine = true,
                 leadingIcon = {
                     Icon(
-                       painter = painterResource(R.drawable.ic_search),
+                        painter = painterResource(R.drawable.ic_search),
                         contentDescription = null,
                         tint = Color.Black.copy(0.2f)
                     )

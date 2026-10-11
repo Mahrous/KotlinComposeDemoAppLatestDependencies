@@ -14,6 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -24,17 +25,19 @@ import com.mahrous.demo_app.core.component.error_screen.ErrorScreen
 import  com.mahrous.demo_app.core.theme.AppMargin
 import  com.mahrous.demo_app.core.theme.AppSize
 import  com.mahrous.demo_app.R
-
+import com.mahrous.demo_app.core.theme.AppText
+import com.mahrous.demo_app.core.theme.colorBlack
+import com.mahrous.demo_app.core.theme.noColorBackGround
 
 
 @Composable
-fun CustomErrorState(
+fun ErrorStateScreen(
     uiText: UiText? = null,
     message: String? = null
 ) {
     val context = LocalContext.current
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().background(noColorBackGround),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -51,8 +54,8 @@ fun CustomErrorState(
                 .fillMaxWidth()
                 .padding(AppMargin.dim20),
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onBackground
+            style = MaterialTheme.typography.titleLarge.copy(fontSize = AppText.dim14),
+            color = colorBlack
         )
     }
 }
@@ -90,9 +93,11 @@ fun CustomLoadingDialog(
     }
 }
 
+
 @Composable
-fun CustomEmptyState(
-    text: String
+fun EmptyStateScreen(
+    text: String ,
+    painter: Painter
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -100,7 +105,7 @@ fun CustomEmptyState(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(id = R.drawable.empty_data),
+            painter = painter,
             contentDescription = null,
             modifier = Modifier.size(AppSize.size200)
         )
@@ -111,7 +116,7 @@ fun CustomEmptyState(
                 .fillMaxWidth()
                 .padding(AppMargin.dim20),
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyMedium,
+            style = MaterialTheme.typography.titleLarge.copy(fontSize = AppText.dim14),
             color = MaterialTheme.colorScheme.onBackground
         )
     }
@@ -130,7 +135,7 @@ fun DataState<*>.ContentScreen(
     },
     content: @Composable (Any?) -> Unit = {},
 
-) {
+    ) {
     val isShow = remember {
         mutableStateOf(false)
     }
