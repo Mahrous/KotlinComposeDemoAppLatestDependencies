@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "658549039583",
+    "project_id": "r-pay-9be8c",
+    "storage_bucket": "r-pay-9be8c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658549039583:android:1760b6a7032a905453a46a",
+        "android_client_info": {
+          "package_name": "com.mahrous.demo_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMdSmrrMPNHUGyhowFb56GXuJpjTWON2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
