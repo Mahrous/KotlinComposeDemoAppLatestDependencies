@@ -11,20 +11,15 @@
     <string name="strTheFieldCanNotBeBlank">The field can\'t be blank</string>
     <string name="strTheNameCanContainDigitsAndLettersOnly">The field must contain letters only</string>
     <string name="strTheNameCanNotBeBlank">The Name can\'t be blank</string>
-
-
     <string name="strNoData">No Data</string>
     <string name="strCancel">Cancel</string>
     <string name="strYes">Yes</string>
     <string name="strOkay">Okay</string>
-
-
     <string name="strHome">Home</string>
     <string name="strCategories">Categories</string>
     <string name="strRxUpload">Rx Upload</string>
     <string name="strProfile">Profile</string>
     <string name="strCart">Cart</string>
-
     <string name="strNoNetwork">No network connection</string>
     <string name="strTryAgain">Try again</string>
 

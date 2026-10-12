@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">صيدلية أبواب الخير</string>
-
+    <string name="app_name">Demo App</string>
     <string name="strThereIsNoInternetConnection">لا يوجد اتصال بالإنترنت</string>
     <string name="strThereWasProblemConnecting">حدثت مشكلة في الاتصال بالخادم</string>
     <string name="strThePhoneCanNotBeBlank">لا يمكن أن يكون رقم الهاتف فارغًا</string>
@@ -10,32 +9,18 @@
     <string name="error">خطأ</string>
     <string name="strTheEmailCanNotBeBlank">لا يمكن أن يكون البريد الإلكتروني فارغًا</string>
     <string name="strTheFieldCanNotBeBlank">لا يمكن أن يكون الحقل فارغًا</string>
-
     <string name="strThatsNotAValidEmail">هذا ليس بريدًا إلكترونيًا صالحًا</string>
-
-
     <string name="strTheNameCanContainDigitsAndLettersOnly">يجب أن يحتوي الحقل على حروف فقط</string>
     <string name="strTheNameCanNotBeBlank">لا يمكن ترك الاسم فارغًا</string>
-
     <string name="strNoData">لا توجد بيانات</string>
     <string name="strCancel">إلغاء</string>
     <string name="strYes">نعم</string>
-
-
-
     <string name="strOkay">موافق</string>
-
     <string name="strCategories">الفئات</string>
-
-
-
-
     <string name="strHome">الرئيسية</string>
     <string name="strRxUpload">رفع الوصفة الطبية</string>
     <string name="strProfile">الملف الشخصي</string>
     <string name="strCart">السلة</string>
-
-
     <string name="strNoNetwork">لا يوجد اتصال بالشبكة</string>
     <string name="strTryAgain">حاول مرة أخرى</string>
 
